@@ -1,0 +1,9 @@
+function source_files() {
+  if [[ -d ${1} ]]; then
+    for file in $(find -s ${1} -type f | grep -vE '/.git' ); do
+      . ${file}
+    done
+  fi
+}
+
+source_files ${BASE_DIR}/scripts
